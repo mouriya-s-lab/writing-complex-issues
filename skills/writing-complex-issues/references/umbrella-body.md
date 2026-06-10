@@ -26,4 +26,4 @@
 
 **## 残留清单** — 回答「活跃路径里不许留下什么」。写：每条残留物 + owner child；**允许保留的例外也显式写**（什么、为什么是内禀的不算违例）。
 
-**## 依赖图** — children 间的 Depends/Blocks，说明什么能并行。
+**## 依赖图** — children 间的 Depends/Blocks，说明什么能并行。必须使用mermaid
