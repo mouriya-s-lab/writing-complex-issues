@@ -1,6 +1,6 @@
 ---
 name: writing-complex-issues
-description: Use when 把大型任务方向拆解成 GitHub issue 树（umbrella/RFC + 原子 children）、为既有 issue 树补齐目标完备性、对 issue 树做对抗审查、或收口树上的待决设计项时。仅 claude-fable 模型可用——方法要求全局求解相互耦合的决策并自行裁决，其他模型执行会产出臆断契约与不完备的目标快照；产出的 issue 供 headless agent 零额外指令消费。
+description: Use when 把大型任务方向拆解成 GitHub issue 树（umbrella/RFC + 原子 children）、为既有 issue 树补齐目标完备性、对 issue 树做对抗审查、或收口树上的待决设计项时。
 ---
 
 # 编写复杂 issue
