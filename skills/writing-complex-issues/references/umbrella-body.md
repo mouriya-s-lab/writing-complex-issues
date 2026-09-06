@@ -34,3 +34,16 @@
 2. **物理共面**：语义独立 ≠ 文件独立。盘点每个 child 触碰的文件 / 部件，被多个 children 反复改写的面是 contended surface——同面 children 串行成链并写明地基次序（谁首定义共享结构 / schema，后续沿用，后合入者 rebase 在已合入的地基上），跨面才可并行。
 
 失败模式：只画语义边——N 个 children 全写「依赖关系：无」却同改一个文件，一次性 fan 出去并行执行时互相 rebase、两个 agent 各自从零重写同一函数。编排是依赖事实，不约束 child 的实现形态——它给实现者一个单 issue 内看不到的真相：哪些 children 在改同一块地基、谁必须先落地。
+
+## retroactive umbrella / 层级模板
+
+仅用于组织已落地工作，不把未来契约模板套在过去事实。标题以 `RFC:` 开头。段落按以下顺序，不适用的可省：
+
+1. `## 背景 / 为什么`：带来源的中文散文；第一段含逐字英文串 **filed retroactively to umbrella work that already landed** 及实际时间窗口。
+2. `## 范围`：每条说明已落地范围并附真实 issue/PR 链接，不用 checkbox。
+3. `## 不在范围内`：仅写源明确排除的内容。
+4. `## 设计决策 / approach`：可选，每项有当时来源，不补造方案。
+5. `## 时间线`：实际落地窗口。
+6. `## 实施 PR / 已挂 children`：已合并 PR、现有 child 与嵌套 sub-proposal 的链接列表。
+
+不写未来时 `[ ]` Acceptance；用散文 How 与已落地 PR 说明实施。发布前剥掉起草 Source bundle。追溯组织放新 issue，不回写已落地 issue/PR body；图边按 mechanics 维护。需要对齐操作员写作风格时，先完整读取 1–2 份实际 umbrella，而不是以固定篇幅代替来源充分性。

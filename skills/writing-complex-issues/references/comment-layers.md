@@ -2,11 +2,13 @@
 
 什么时候读我：为既有 thread 补齐决策、架构切片、log 义务，或落设计修正时。
 
-**body 一经发布不再改写，后续内容以 append-only comment 分层补齐。**理由：body 是已被 children/PR 引用的锚，原地改写让既有引用静默指向新语义；comment 层保留修订历史，headless 读者按时间序 reconcile 一次即可（配合设计修正层的显式收回，reconcile 成本是有界的）。完整 thread = body + 以下各层；某层无内容也显式写（「无新事件义务」防画蛇添足）。
+活跃 issue 的 body 保留当前有效结论：错误引用、作废前提和过时说明直接替换，不用追加否定段让两套任务指令并存；这同样适用于 umbrella 和原子 child。裁决依据、范围演进与架构变更另发 append-only comment 留下决策记录。已落地 issue/PR body、已发布 comment 和 review thread 遵守全局不可变边界，不回写历史。
+
+修订时保持已引用的章节/条目编号稳定，明确核对受影响 child 的继承快照与引用；活跃快照一并更新，已落地引用通过新记录说明影响。不能用“body 已发布”保留错误指令，也不能静默改写决策历史。以下 comment 层按实际新增内容使用，没有新义务时明确说明不新增，不为模板制造工作。
 
 ## 决策 comment
 
-回答「body 留白处怎么定」。格式：「body 某处的『归 PR 定』收回，裁决为 X，依据 Y」。全树决策表 + 交叉自洽检查落 umbrella 的 master record，child 引用并复述影响自己的部分。裁决流程见 decision-closure.md。
+回答「body 留白处怎么定」。记录裁决 X、依据 Y 及影响的章节；同时把活跃 body 的留白或作废表述替换为当前结论。全树决策表与交叉自洽检查落 umbrella 的 master record，child 引用并复述影响自己的部分。裁决流程见 decision-closure.md。
 
 ## 架构切片 comment
 
@@ -29,4 +31,4 @@
 
 ## 设计修正 comment
 
-操作员镜头修正或审查发现触发。格式：「收回 X，改为 Y」+ 对 body 各节的影响逐节列出。被修正的旧表述显式收回——新旧并存等于把 reconcile 成本转嫁给每个未来读者。涉及登记表/范围的更正遵守稳定编号纪律（见 child-body.md 的 audit child）。
+操作员镜头修正或审查发现触发。comment 记录「收回 X，改为 Y」、依据和对 body 各节的影响；活跃 body 及受影响的活跃 child 快照同步替换为有效结论。已发布的旧 comment 保持原文，由新的决策记录明确取代，不把历史正文改写成从未发生过。涉及登记表/范围的更正遵守稳定编号纪律（见 child-body.md 的 audit child）。
