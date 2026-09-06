@@ -20,7 +20,9 @@
 
 **## 约束** — 只写外部强加的硬约束（继承自契约 + 本 child 独有）。失败模式：把偏好包装成约束——headless agent 无法区分「违反会坏」和「作者喜欢」，真约束被稀释。
 
-**## 验收标准** — checkpoint 表（Dimension / Check / Command / Env / Expect），验**结果**不验实现。写之前做对抗自检：**模拟最省事的 agent 怎么在目标未达成时让这张表通过**——具名常量的 grep 杀不掉内联字面量、「含用例」的测试行要写清用例断言什么。维度覆盖真实风险（function / environment / integration / assumption）。
+**## 验收标准** — 使用 `skill://writing-issue` 的 checkpoint 契约（Dimension / Check / Command / Env / Expect）：每条预期结果都有真实路径直接观察它的覆盖行，Check 点名；卫生检查及实现者本次自写测试不能承担结果覆盖。模拟最省事路径，确认目标未达成时表不能全绿。维度覆盖实际的 function / environment / integration / assumption 风险。
+
+**## 继承验证义务**（如有）— 沿用 checkpoint 表，加 From / Original #，指明 owner；上游移交的义务不可二次延期。
 
 **## 依赖关系** — Depends on / Blocks，写明需要上游的什么后置条件。语义上「无依赖」不等于可并行：物理共面（本 child 与哪些 siblings 改同一文件）由 umbrella「依赖图与编排」区块裁定，写「无」前先对照该区块。
 
